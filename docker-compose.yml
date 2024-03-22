@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  bert_pretraining:
+    image: bert_pretraining:1.0
+    restart: always
+    volumes:
+      - /home/p0l3/RAD/BERT_PRETRAINING/PRETRAINING/:/PRETRAINING
+    command: tail -f /dev/null
+
+

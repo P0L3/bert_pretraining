@@ -5,35 +5,46 @@ Script to prepair data for NSP and MLM: from pandas pickle to sentence txt and f
 import pandas as pd
 from tqdm import tqdm
 from time import time
-
-DIR = "./DATASET/full_10ksamplecsv"
-
-df = pd.read_csv(DIR, nrows=500)
-start = time()
-# df.to_csv(DIR.replace(".pickle", ".csv"))
-# exit()
-# print(df["Content"])
-print("Importing SpaCy ...")
 import spacy
-nlp = spacy.load('./DATASET/en_core_sci_sm-0.5.4/en_core_sci_sm/en_core_sci_sm-0.5.4/', disable=["ner"])
+from os import listdir
 
-# def text_to_sentence(content):
-#     return [sent for sent in nlp(content).sents]
-# tqdm.pandas()
+
+DIR = "/PRETRAINING/DATASET/ED4RE_2503/ED4RE_2603_tc.csv"
+FINAL_DIR =  "/PRETRAINING/DATASET/ED4RE_2503/TOKENIZED/ED4RE_2603_tc_tokenized_"
+BATCH_SIZE = 200
+processed_rows = 0
+
+RANGE = 200000 // BATCH_SIZE
 
 def gen_to_list(gen):
     return [sent.text for sent in gen.sents]
 
 def print_sentence_len(sent_list):
-    print(len(sent_list))
+    # print(len(sent_list))
     return sent_list
 
-print("Tagging sentences ...")
-# df["Sentences"] = df["Content"].progress_apply(text_to_sentence)
-df["Sentences"] = list(nlp.pipe(df['Content'], batch_size=10, n_process=12))
 
-df["Sentences"] = df["Sentences"].apply(gen_to_list)
-print(df["Sentences"])
+for i in tqdm(range(RANGE)):
+    df = pd.read_csv(DIR, nrows=BATCH_SIZE, skiprows=range(1, processed_rows))
+    try:
+        start = time()
 
-df["Sentences"].apply(print_sentence_len)
-print("Done ... Total time: ", time() - start)
+        print("Importing SpaCy ...")
+        nlp = spacy.load('./DATASET/en_core_sci_sm-0.5.4/en_core_sci_sm/en_core_sci_sm-0.5.4/', disable=["ner"])
+
+        print("Tagging sentences ...")
+        # df["Sentences"] = df["Content"].progress_apply(text_to_sentence)
+        df["Sentences"] = list(nlp.pipe(df['Content'], batch_size=10, n_process=1))
+        
+        print("Saving to list ...")
+        df["Sentences"] = df["Sentences"].apply(gen_to_list)
+        # print(df["Sentences"])
+
+        print("Saving to pickle ...")
+        #  df["Sentences"].apply(print_sentence_len)
+        df.to_pickle(FINAL_DIR+str(processed_rows)+".pickle")
+
+        print("Done ... Total time: ", time() - start)
+    except:
+        print(processed_rows)
+    processed_rows += BATCH_SIZE

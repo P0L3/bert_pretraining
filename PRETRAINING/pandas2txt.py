@@ -9,12 +9,12 @@ import spacy
 from os import listdir
 
 
-DIR = "/PRETRAINING/DATASET/ED4RE_2503/ED4RE_2603_tc.csv"
-FINAL_DIR =  "/PRETRAINING/DATASET/ED4RE_2503/TOKENIZED/ED4RE_2603_tc_tokenized_"
-BATCH_SIZE = 200
+DIR = "/PRETRAINING/DATASET/ED4RE_2503/ED4RE_2603_tc_remaining.csv"
+FINAL_DIR =  "/PRETRAINING/DATASET/ED4RE_2503/TOKENIZED/ED4RE_2603_tc_tokenized_remaining_"
+BATCH_SIZE = 50
 processed_rows = 0
 
-RANGE = 200000 // BATCH_SIZE
+RANGE = 42500 // BATCH_SIZE
 
 def gen_to_list(gen):
     return [sent.text for sent in gen.sents]
@@ -25,7 +25,7 @@ def print_sentence_len(sent_list):
 
 
 for i in tqdm(range(RANGE)):
-    df = pd.read_csv(DIR, nrows=BATCH_SIZE, skiprows=range(1, processed_rows))
+    df = pd.read_csv(DIR, nrows=BATCH_SIZE+1, skiprows=range(1, processed_rows)) # Fix with BATC_SIZE+1 to mitigate skipping last row
     try:
         start = time()
 

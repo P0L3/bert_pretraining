@@ -1,3 +1,7 @@
+"""
+Calculate average number of tokens per sentence
+"""
+
 import pandas as pd
 from transformers import BertTokenizer, BertForPreTraining
 import torch
@@ -7,28 +11,6 @@ DIR = "DATASET/ED4RE_2503/TOKENIZED/ED4RE_2603_tc_tokenized_800.pickle"
 df = pd.read_pickle(DIR)
 
 tokenizer = BertTokenizer.from_pretrained('allenai/scibert_scivocab_uncased')
-
-# def sentence_tokenize(list_sentence):
-
-
-# sentence = df["Sentences"][10][6]
-# print(sentence)
-# print(tokenizer.tokenize(sentence))
-
-# # Tokenizes a sentence and returns the tokens
-# def tokenize_sentence(sentence):
-#     return tokenizer.tokenize(sentence)
-
-# # Flatten the list of lists of sentences
-# all_sentences = [sentence for sublist in df["Sentences"] for sentence in sublist]
-
-# # Tokenize all sentences and calculate the length of each token list
-# token_lengths = [len(tokenize_sentence(sentence)) for sentence in all_sentences]
-
-# # Calculate the average number of tokens per sentence
-# average_tokens = sum(token_lengths) / len(token_lengths)
-
-# print(f"Average number of tokens per sentence: {average_tokens}")
 
 # Tokenize sentence
 def tokenize_sentence(sentence):

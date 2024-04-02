@@ -7,5 +7,12 @@ services:
     volumes:
       - /home/p0l3/RAD/BERT_PRETRAINING/PRETRAINING/:/PRETRAINING
     command: tail -f /dev/null
-
+    deploy:
+    	resources:
+    		reservations:
+    			devices:
+    				- driver: nvidia
+    					count: 1
+    					capabilities: [gpu]
+    
 

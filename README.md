@@ -8,6 +8,20 @@ docker build -t bert_pretraining:1.0 .
 ``` shell
 docker compose up
 ```
+
+# Workflow
+[sentence_tokenizer.py](./PRETRAINING/sentence_tokenizer.py) > [tokenization_remainder.py](./PRETRAINING/tokenization_remainder.py) > [sentences2batches.py](./PRETRAINING/sentences2batches.py) > [csv2dataset.py](./PRETRAINING/csv2dataset.py) 
+1. Perform sentence tokenizaton on the data containing Titles and Content from CSV filE using [sentence_tokenizer.py](./PRETRAINING/sentence_tokenizer.py) -> DURATION: 12h for 180,000 papers
+``` shell
+python3 sentence_tokenizer.py > process_log.txt
+```
+2. Use created `process_log.txt` to create `left2process.txt` ([left2process.txt](.PRETRAINING/left2process.txt)) that containes failed batches
+3. Use [tokenization_remainder.py](./PRETRAINING/tokenization_remainder.py) to create new csv file based on the failed batches
+4. Repeat first 3 steps until all data is tokenized into sentences
+5. Use [sentences2batches.py](./PRETRAINING/sentences2batches.py) to create csv with text rows each containing ~11 sentences (tokenized ~512 tokens for MLM training) -> DURATION: 1 minute
+6. Use [csv2dataset.py](./PRETRAINING/csv2dataset.py) to create final dataset (using dataset library) for training -> DURATION: 3h for 3,600,000 rows
+
+
 # Links
 - https://www.youtube.com/watch?v=IC9FaVPKlYc&t=85s
 - https://towardsdatascience.com/how-to-train-bert-aaad00533168

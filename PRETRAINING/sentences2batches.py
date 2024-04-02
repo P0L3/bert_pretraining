@@ -25,7 +25,7 @@ MAX_SEQ_LEN = 512
 n_sentences = MAX_SEQ_LEN // AVG_SENT_LEN
 
 # List files in the directory
-files = listdir(DIR)[0:10]
+files = listdir(DIR)
 
 # Print the list of files
 print(files)

@@ -6,6 +6,6 @@ scispacy==0.5.4
 datasets==2.18.0
 accelerate==0.28.0
 # Extras
-# pipdeptree==2.16.1
+pipdeptree==2.16.1
 # modin==0.23.1.post0
 

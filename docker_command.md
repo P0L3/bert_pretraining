@@ -3,7 +3,9 @@
 docker run -d \
   --name bert_pretraining \
   --restart always \
-  -v /home/andrijapoleksic/BERT_PRETRAINING/bert_pretraining/PRETRAINING:/PRETRAINING \
+  -v /home/andrijapoleksic/BERT_PRETRAINING/bert_pretraining/PRETRAINING:/bert_pretraining/PRETRAINING \
+  -v /srv/andrijapoleksic/DATASET/BATCHED:/bert_pretraining/PRETRAINING/DATASET/BATCHED \
+  -v /srv/andrijapoleksic/MODEL:/bert_pretraining/PRETRAINING/MODELS \
   --memory=64g \
   --cpus="16" \
   --gpus "count=1,capabilities=compute" \

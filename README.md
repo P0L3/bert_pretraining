@@ -21,6 +21,8 @@ python3 sentence_tokenizer.py > process_log.txt
 5. Use [sentences2batches.py](./PRETRAINING/sentences2batches.py) to create csv with text rows each containing ~11 sentences (tokenized ~512 tokens for MLM training) -> DURATION: 1 minute
 6. Use [csv2dataset.py](./PRETRAINING/csv2dataset.py) to create final dataset (using dataset library) for training -> DURATION: 3h for 3,600,000 rows
 
+# Model training info
+- [training_notes](./PRETRAINING/training_notes.md)
 
 # Links
 - https://www.youtube.com/watch?v=IC9FaVPKlYc&t=85s

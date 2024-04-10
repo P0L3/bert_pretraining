@@ -24,6 +24,9 @@ python3 sentence_tokenizer.py > process_log.txt
 # Model training info
 - [training_notes](./PRETRAINING/training_notes.md)
 
+# Data collection
+- Used [PDF2TXT repo](https://github.com/P0L3/PDF2TXT)
+
 # Links
 - https://www.youtube.com/watch?v=IC9FaVPKlYc&t=85s
 - https://towardsdatascience.com/how-to-train-bert-aaad00533168

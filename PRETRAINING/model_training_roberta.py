@@ -1,15 +1,16 @@
 import torch
-from transformers import BertTokenizer, BertForMaskedLM, DataCollatorForLanguageModeling, TrainingArguments, Trainer
+from transformers import RobertaTokenizer, RobertaForMaskedLM, DataCollatorForLanguageModeling, TrainingArguments, Trainer
 from datasets import load_dataset
 from os import mkdir
 
 DATA = "ED4RE_MSL512_ASL50_S11369"
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"
 DIR_TEST = f"DATASET/BATCHED/{DATA}_test/*.arrow"
-MODEL = "allenai/scibert_scivocab_uncased"
-BATCH = 24
+MODEL = "climatebert/distilroberta-base-climate-f"
+BATCH = 4
 
 CHKPT = "MODELS/{}_{}_{}".format(MODEL.replace("/", "__"), DATA, BATCH)
+LOGS = CHKPT + "/LOGS"
 
 print("Checking for CUDA: ", torch.cuda.is_available())
 try:
@@ -17,6 +18,12 @@ try:
     print("Checkpoint folder created: ", CHKPT)
 except:
     print("Checkpoint folder already exists: ", CHKPT)
+
+try:
+    mkdir(LOGS)
+    print("Logs folder created: ", LOGS)
+except:
+    print("Logs folder already exists: ", LOGS)
 
 # Load the saved dataset
 print("Loading data ...")
@@ -29,8 +36,8 @@ print(test)
 
 # Modle and tokenizer load
 print("Loading tokenizer and model ...")
-tokenizer = BertTokenizer.from_pretrained(MODEL)
-model = BertForMaskedLM.from_pretrained(MODEL)
+tokenizer = RobertaTokenizer.from_pretrained(MODEL)
+model = RobertaForMaskedLM.from_pretrained(MODEL)
 
 # MLM data prep
 data_collator = DataCollatorForLanguageModeling(
@@ -42,12 +49,13 @@ training_args = TrainingArguments(
     output_dir=CHKPT,          # output directory to where save model checkpoint
     evaluation_strategy="steps",    # evaluate each `logging_steps` steps
     overwrite_output_dir=True,      
-    num_train_epochs=8,            # number of training epochs, feel free to tweak
+    num_train_epochs=1,            # number of training epochs, feel free to tweak
     per_device_train_batch_size=BATCH, # the training batch size, put it as high as your GPU memory fits
     gradient_accumulation_steps=8,  # accumulating the gradients before updating the weights
     per_device_eval_batch_size=BATCH,  # evaluation batch size
-    logging_steps=1000,             # evaluate, log and save model checkpoints every 1000 step
-    save_steps=1000,
+    logging_steps=100,             # evaluate, log and save model checkpoints every 1000 step
+    save_steps=100,                # Save steps
+    logging_dir=LOGS,               # Where logging steps go
     # load_best_model_at_end=True,  # whether to load the best model (in terms of loss) at the end of training
     # save_total_limit=3,           # whether you don't have much space so you let only 3 model weights saved in the disk
 )

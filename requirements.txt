@@ -5,7 +5,9 @@ pandas==2.0.3
 scispacy==0.5.4
 datasets==2.18.0
 accelerate==0.28.0
+
 # Extras
 pipdeptree==2.16.1
+matplotlib==3.7.5
 # modin==0.23.1.post0
 

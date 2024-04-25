@@ -3,7 +3,7 @@ from transformers import BertTokenizer, BertForMaskedLM, DataCollatorForLanguage
 from datasets import load_dataset
 from os import mkdir
 
-DATA = "ED4RE_MSL512_ASL50_S11369"
+DATA = "ED4RE_MSL512_ASL50_S3592675" # Watch out for this
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"
 DIR_TEST = f"DATASET/BATCHED/{DATA}_test/*.arrow"
 MODEL = "allenai/scibert_scivocab_uncased"
@@ -64,3 +64,12 @@ trainer = Trainer(
 
 # train the model
 trainer.train(resume_from_checkpoint=True,)
+
+# Saving model
+try:
+    mkdir(CHKPT+"/pretrained_final")
+    print("Final folder created: ", CHKPT+"/pretrained_final")
+except:
+    print("Final folder already exists: ", CHKPT+"/pretrained_final")
+
+trainer.model.save_pretrained(CHKPT+"/pretrained_final", safe_serialization=False) # Use safe_serialization=False when loading model in older versions of transformers (eg. 3.4.0)

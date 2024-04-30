@@ -42,7 +42,7 @@ training_args = TrainingArguments(
     output_dir=CHKPT,          # output directory to where save model checkpoint
     evaluation_strategy="steps",    # evaluate each `logging_steps` steps
     overwrite_output_dir=True,      
-    num_train_epochs=8,            # number of training epochs, feel free to tweak
+    num_train_epochs=10,            # number of training epochs, feel free to tweak
     per_device_train_batch_size=BATCH, # the training batch size, put it as high as your GPU memory fits
     gradient_accumulation_steps=8,  # accumulating the gradients before updating the weights
     per_device_eval_batch_size=BATCH,  # evaluation batch size
@@ -72,4 +72,4 @@ try:
 except:
     print("Final folder already exists: ", CHKPT+"/pretrained_final")
 
-trainer.model.save_pretrained(CHKPT+"/pretrained_final", safe_serialization=False) # Use safe_serialization=False when loading model in older versions of transformers (eg. 3.4.0)
+trainer.model.save_pretrained(CHKPT+"/pretrained_final_10epochs", safe_serialization=False) # Use safe_serialization=False when loading model in older versions of transformers (eg. 3.4.0)

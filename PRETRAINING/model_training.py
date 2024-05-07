@@ -10,6 +10,7 @@ MODEL = "allenai/scibert_scivocab_uncased"
 BATCH = 24
 
 CHKPT = "MODELS/{}_{}_{}".format(MODEL.replace("/", "__"), DATA, BATCH)
+LOGS = CHKPT + "/LOGS"
 
 print("Checking for CUDA: ", torch.cuda.is_available())
 try:
@@ -17,6 +18,12 @@ try:
     print("Checkpoint folder created: ", CHKPT)
 except:
     print("Checkpoint folder already exists: ", CHKPT)
+
+try:
+    mkdir(LOGS)
+    print("Logs folder created: ", LOGS)
+except:
+    print("Logs folder already exists: ", LOGS)
 
 # Load the saved dataset
 print("Loading data ...")

@@ -7,7 +7,7 @@ DATA = "ED4RE_MSL512_ASL50_S3592675" # Watch out for this
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"
 DIR_TEST = f"DATASET/BATCHED/{DATA}_test/*.arrow"
 MODEL = "p0l3/clirebert_clirevocab_uncased"
-BATCH = 4
+BATCH = 24
 
 CHKPT = "MODELS/{}_{}_{}".format(MODEL.replace("/", "__"), DATA, BATCH)
 LOGS = CHKPT + "/LOGS"

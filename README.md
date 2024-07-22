@@ -33,6 +33,13 @@ python3 sentence_tokenizer.py > process_log.txt
 # Data collection
 - Used [PDF2TXT repo](https://github.com/P0L3/PDF2TXT)
 
+# Evaluation on Cli. TC tasks
+Evaluation on climate change related text classification tasks
+
+## TODO 
+- [ ] - Add trainig script similar to [evidence_synthesis](https://github.com/dspoka/ccai-nlp-tutorial-2023/blob/main/1_evidence_synthesis.ipynb) from dspoka.
+- [ ] - Make a framework for training and evaluation of all available models: BERT, RoBERTa, DeBERTa, ...
+
 # Links
 - https://www.youtube.com/watch?v=IC9FaVPKlYc&t=85s
 - https://towardsdatascience.com/how-to-train-bert-aaad00533168

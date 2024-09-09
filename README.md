@@ -20,9 +20,10 @@ python3 sentence_tokenizer.py > process_log.txt
 4. Repeat first 3 steps until all data is tokenized into sentences
 5. Use [sentences2batches.py](./PRETRAINING/sentences2batches.py) to create csv with text rows each containing ~11 sentences (tokenized ~512 tokens for MLM training) -> DURATION: 1 minute
 6. Use [csv2dataset.py](./PRETRAINING/csv2dataset.py) to create final dataset (using dataset library) for training -> DURATION: 3h for 3,600,000 rows
-7. Start training BERT with [model_training.py](./PRETRAINING/model_training.py) or RoBERTa with [model_training_roberta.py](./PRETRAINING/model_training_roberta.py) -> DURATION: Depends on batch size, sequence length and hardware; 13 Days for [this setup](./PRETRAINING/training_notes.md#allenai__scibert_scivocab_uncased_ED4RE_MSL512_ASL50_S3592675_24)
+7. :pill: :pill: Step 6 needs to be performed for every model with it's tokenizer!!! :pill: :pill:
+8. Start training BERT with [model_training.py](./PRETRAINING/model_training.py), RoBERTa with [model_training_roberta.py](./PRETRAINING/model_training_roberta.py), BERT from scratch with [model_training_fromscratch.py](PRETRAINING/model_training_fromscratch.py) or [model_training_fromscratch_roberta.py](PRETRAINING/model_training_fromscratch_roberta.py) -> DURATION: Depends on batch size, sequence length and hardware; 13 Days for [this setup](./PRETRAINING/training_notes.md#allenai__scibert_scivocab_uncased_ED4RE_MSL512_ASL50_S3592675_24)
 > Note: Fix training paramaters and directories according to your need!
-8. Final checkpoint saves in binary format (convinient for older code, but use with caution!). To save other checkpoints in desired format, use [model_chkpt2bin.py](PRETRAINING/model_chkpt2bin.py).
+9. Final checkpoint saves in binary format (convinient for older code, but use with caution!). To save other checkpoints in desired format, use [model_chkpt2bin.py](PRETRAINING/model_chkpt2bin.py).
 
 # Model training info
 - [training_notes](./PRETRAINING/training_notes.md)

@@ -3,10 +3,13 @@ from transformers import RobertaTokenizer, RobertaForMaskedLM, DataCollatorForLa
 from datasets import load_dataset
 from os import mkdir
 
-DATA = "ED4RE_MSL512_ASL50_S3592675"
+
+MODEL = "climatebert/distilroberta-base-climate-f" # Change dependaning opn the model you want to train
+model_name = MODEL.split("/")[-1]
+
+DATA = f"ED4RE_MSL512_ASL50_S3592675_{model_name}"
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"
 DIR_TEST = f"DATASET/BATCHED/{DATA}_test/*.arrow"
-MODEL = "climatebert/distilroberta-base-climate-f"
 BATCH = 24
 
 CHKPT = "MODELS/{}_{}_{}".format(MODEL.replace("/", "__"), DATA, BATCH)
@@ -35,7 +38,7 @@ print(train)
 print(test)
 
 # Modle and tokenizer load
-print("Loading tokenizer and model ...")
+print(f"Loading tokenizer and model: {model_name}")
 tokenizer = RobertaTokenizer.from_pretrained(MODEL)
 model = RobertaForMaskedLM.from_pretrained(MODEL)
 

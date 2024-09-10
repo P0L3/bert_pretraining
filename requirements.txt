@@ -1,5 +1,5 @@
 transformers==4.39.0
-torch==2.2.1
+# torch==2.2.1
 tqdm==4.66.2
 pandas==2.0.3
 scispacy==0.5.4

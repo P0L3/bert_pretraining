@@ -9,6 +9,10 @@ docker build -t bert_pretraining:1.0 .
 docker compose up
 ```
 
+- Command for server is available [here](./docker_command.md).
+
+- Conda environment procedure is available [here](./conda_init.md).
+
 # Workflow
 [sentence_tokenizer.py](./PRETRAINING/sentence_tokenizer.py) > [tokenization_remainder.py](./PRETRAINING/tokenization_remainder.py) > [sentences2batches.py](./PRETRAINING/sentences2batches.py) > [csv2dataset.py](./PRETRAINING/csv2dataset.py) 
 1. Perform sentence tokenizaton on the data containing Titles and Content from CSV filE using [sentence_tokenizer.py](./PRETRAINING/sentence_tokenizer.py) -> DURATION: 12h for 180,000 papers

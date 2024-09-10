@@ -11,7 +11,7 @@ import torch
 ## DATA LOADING
 DIR = "DATASET/BATCHED/ED4RE_MSL512_ASL50_S3592675"
 MAX_SEQ_LEN = 512
-MODEL = 'climatebert/distilroberta-base-climate-f' # Change based on the model you plan to pretrain
+MODEL = 'p0l3/clireroberta_clirevocab_cased' # Change based on the model you plan to pretrain
 model_name = MODEL.split("/")[-1]
 print(MODEL)
 print("Model name: ", model_name)
@@ -38,7 +38,12 @@ print(test_dataset)
 
 ## TOKENIZATION
 truncate_longer_samples = True
-tokenizer = RobertaTokenizer.from_pretrained(MODEL)
+
+# # For HuggingFace models
+# tokenizer = RobertaTokenizer.from_pretrained(MODEL)
+# For local models
+tokenizer = RobertaTokenizer(vocab_file="LOCAL_MODELS/CliReRoBERTa/vocab.json", merges_file="LOCAL_MODELS/CliReRoBERTa/merges.txt")
+
 
 def encode_with_truncation(examples):
   """Mapping function to tokenize the sentences passed with truncation"""

@@ -3,7 +3,7 @@
 """
 
 from datasets import load_dataset
-from transformers import BertTokenizer, BertForPreTraining
+from transformers import BertTokenizer, BertForPreTraining, RobertaTokenizer
 import torch
 
 
@@ -11,6 +11,11 @@ import torch
 ## DATA LOADING
 DIR = "DATASET/BATCHED/ED4RE_MSL512_ASL50_S3592675"
 MAX_SEQ_LEN = 512
+MODEL = 'climatebert/distilroberta-base-climate-f' # Change based on the model you plan to pretrain
+model_name = MODEL.split("/")[-1]
+print(MODEL)
+print("Model name: ", model_name)
+
 
 # Load the data from csv
 dataset = load_dataset("csv", data_files=DIR)
@@ -33,7 +38,7 @@ print(test_dataset)
 
 ## TOKENIZATION
 truncate_longer_samples = True
-tokenizer = BertTokenizer.from_pretrained('allenai/scibert_scivocab_uncased')
+tokenizer = RobertaTokenizer.from_pretrained(MODEL)
 
 def encode_with_truncation(examples):
   """Mapping function to tokenize the sentences passed with truncation"""
@@ -63,6 +68,6 @@ print(len(train_dataset_encoded), len(test_dataset_encoded))
 
 
 ## SAVE DATASETS
-train_dataset_encoded.save_to_disk(DIR+"_train")
-test_dataset_encoded.save_to_disk(DIR+"_test")
+train_dataset_encoded.save_to_disk(DIR+f"_{model_name}_train")
+test_dataset_encoded.save_to_disk(DIR+f"_{model_name}_test")
 

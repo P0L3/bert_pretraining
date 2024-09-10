@@ -23,7 +23,7 @@ python3 sentence_tokenizer.py > process_log.txt
 3. Use [tokenization_remainder.py](./PRETRAINING/tokenization_remainder.py) to create new csv file based on the failed batches
 4. Repeat first 3 steps until all data is tokenized into sentences
 5. Use [sentences2batches.py](./PRETRAINING/sentences2batches.py) to create csv with text rows each containing ~11 sentences (tokenized ~512 tokens for MLM training) -> DURATION: 1 minute
-6. Use [csv2dataset.py](./PRETRAINING/csv2dataset.py) to create final dataset (using dataset library) for training -> DURATION: 3h for 3,600,000 rows
+6. Use [csv2dataset.py](./PRETRAINING/csv2dataset.py) to create final dataset (using dataset library) for training -> DURATION: 3h for 3,600,000 rows -> NOTE: Watch out for RobertaTokenizer/BertTokenizer
 7. :pill: :pill: **Step 6 needs to be performed for every model with it's tokenizer!!!** :pill: :pill:
 8. Start training BERT with [model_training.py](./PRETRAINING/model_training.py), RoBERTa with [model_training_roberta.py](./PRETRAINING/model_training_roberta.py), BERT from scratch with [model_training_fromscratch.py](PRETRAINING/model_training_fromscratch.py) or [model_training_fromscratch_roberta.py](PRETRAINING/model_training_fromscratch_roberta.py) -> DURATION: Depends on batch size, sequence length and hardware; 13 Days for [this setup](./PRETRAINING/training_notes.md#allenai__scibert_scivocab_uncased_ED4RE_MSL512_ASL50_S3592675_24)
 > Note: Fix training paramaters and directories according to your need!

@@ -18,7 +18,7 @@ import torch
 
 # Configuration for each model "model_name" : (type, model_directory, model_tokenizer)
 config = {
-    "CliReBERT" : ("BERT", "MODELS/p0l3__clirebert_clirevocab_uncased_ED4RE_MSL512_ASL50_S3592675_4/checkpoint-177000", "LOCAL_MODELS/CliReBERT/tokenizer.json"),
+    "CliReBERT" : ("BERT", "MODELS/p0l3__clirebert_clirevocab_uncased_ED4RE_MSL512_ASL50_S3592675_clirebert_clirevocab_uncased_24/checkpoint-40000", "LOCAL_MODELS/CliReBERT/tokenizer.json"),
     "CliReRoBERTa" : ("ROBERTA", "MODELS/p0l3__clireroberta_clirevocab_cased_ED4RE_MSL512_ASL50_S3592675_4/checkpoint-177000_CliReRoBERTa", "LOCAL_MODELS/CliReRoBERTa"),
     "CliSciBERT" : ("BERT", "MODELS/allenai__scibert_scivocab_uncased_ED4RE_MSL512_ASL50_S11369/checkpoint-177000", "allenai/scibert_scivocab_uncased"),
     "SciClimateBERT" : ("ROBERTA", "MODELS/climatebert__distilroberta-base-climate-f_ED4RE_MSL512_ASL50_S3592675_24/checkpoint-177000_ClimateBERT_177", "climatebert/distilroberta-base-climate-f"),
@@ -27,7 +27,7 @@ config = {
 }
 
 # Change this as per config
-MODEL_NAME = "ClimateBERT_f"
+MODEL_NAME = "CliReBERT"
 
 
 DIR_MODEL = config[MODEL_NAME][1]
@@ -72,7 +72,7 @@ def predict_masked_sent(text, top_k=5, tokenizer=tokenizer):
         print("[MASK]: '%s'"%predicted_token, " | weights:", float(token_weight))
 
         
-predict_masked_sent(f"Climate change causes {tokenizer.mask_token}", top_k=10, tokenizer=tokenizer)
+predict_masked_sent(f"Climate change does not {tokenizer.mask_token} with serious", top_k=2, tokenizer=tokenizer)
 
 
 

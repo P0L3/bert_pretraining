@@ -7,7 +7,7 @@ import json
 from random import randint
 import re
 
-DIR = "MODELS/p0l3__clireroberta_clirevocab_cased_ED4RE_MSL512_ASL50_S3592675_4/checkpoint-177000_CliReRoBERTa/trainer_state.json" # Path to trainer state
+DIR = "./MODELS/p0l3_clirebert_clirevocab_15_9_2024/checkpoint-40000_clirebert_clirevocab/trainer_state.json" # Path to trainer state
 colors = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7']
 
 with open(DIR, 'rb') as f:

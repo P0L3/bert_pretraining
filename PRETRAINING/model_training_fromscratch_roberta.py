@@ -3,11 +3,14 @@ from transformers import RobertaTokenizer, RobertaForMaskedLM, DataCollatorForLa
 from datasets import load_dataset
 from os import mkdir
 
-DATA = "ED4RE_MSL512_ASL50_S3592675"
+MODEL = "p0l3/clireroberta_clirevocab_cased"
+model_name = MODEL.split("/")[-1]
+
+DATA = f"ED4RE_MSL512_ASL50_S3592675_{model_name}"
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"
 DIR_TEST = f"DATASET/BATCHED/{DATA}_test/*.arrow"
-MODEL = "p0l3/clireroberta_clirevocab_cased"
-BATCH = 4
+
+BATCH = 24
 
 CHKPT = "MODELS/{}_{}_{}".format(MODEL.replace("/", "__"), DATA, BATCH)
 LOGS = CHKPT + "/LOGS"
@@ -35,7 +38,7 @@ print(train)
 print(test)
 
 # Modle and tokenizer load
-print("Loading tokenizer and model ...")
+print(f"Loading tokenizer and model: {model_name}")
 tokenizer = RobertaTokenizer(vocab_file="LOCAL_MODELS/CliReRoBERTa/vocab.json", merges_file="LOCAL_MODELS/CliReRoBERTa/merges.txt")
 config = RobertaConfig.from_json_file("LOCAL_MODELS/CliReRoBERTa/config.json")
 model = RobertaForMaskedLM(config)
@@ -77,7 +80,7 @@ trainer = Trainer(
 )
 
 # train the model
-trainer.train()
+trainer.train(resume_from_checkpoint=True,)
 
 # Saving model
 try:

@@ -40,7 +40,7 @@ print(test)
 
 # Modle and tokenizer load
 print(f"Loading tokenizer and model: {model_name}")
-tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/tokenizer.json")
+tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/vocab.txt")
 config = BertConfig.from_json_file("LOCAL_MODELS/CliReBERT/config.json")
 model = BertForMaskedLM(config)
 test_tokenizer(tokenizer)

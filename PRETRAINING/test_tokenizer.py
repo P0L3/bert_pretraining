@@ -16,7 +16,9 @@ tokenizers.append((BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/tokenizer.js
 # CliReBERT_fixed_1
 tokenizers.append((BertTokenizerFast(tokenizer_file="LOCAL_MODELS/CliReBERT/tokenizer.json"), "CliReBERT_fixed_1"))
 # CliReBERT_fixed_2
-tokenizers.append((BertTokenizer(tokenizer_file="LOCAL_MODELS/CliReBERT/tokenizer.json"), "CliReBERT_fixed_2"))
+tokenizers.append((BertTokenizer("LOCAL_MODELS/CliReBERT/tokenizer.json"), "CliReBERT_fixed_2"))
+# CliReBERT_fixed_4real
+tokenizers.append((BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/vocab.txt"), "CliReBERT_fixed_4real"))
 
 
 

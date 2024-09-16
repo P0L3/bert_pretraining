@@ -44,7 +44,7 @@ truncate_longer_samples = True
 # # For local models RoBERTa
 # tokenizer = RobertaTokenizer(vocab_file="LOCAL_MODELS/CliReRoBERTa/vocab.json", merges_file="LOCAL_MODELS/CliReRoBERTa/merges.txt")
 # For local models BERT
-tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/tokenizer.json")
+tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/vocab.txt")
 
 
 def encode_with_truncation(examples):

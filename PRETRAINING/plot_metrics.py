@@ -6,8 +6,12 @@ from matplotlib import pyplot as plt
 import json
 from random import randint
 import re
+from datetime import date
 
-DIR = "./MODELS/p0l3_clirebert_clirevocab_15_9_2024/checkpoint-40000_clirebert_clirevocab/trainer_state.json" # Path to trainer state
+DIR = "./MODELS/p0l3__clirebert_clirevocab_uncased_ED4RE_MSL512_ASL50_S3592675_clirebert_clirevocab_uncased_24/checkpoint-18000/trainer_state.json" # Path to trainer state
+model_name = DIR.split("/MODELS/")[-1].split("/")[0].split("_ED4RE_")[0]
+today = date.today()
+
 colors = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7']
 
 with open(DIR, 'rb') as f:
@@ -67,7 +71,7 @@ plt.legend()
 
 plt.tight_layout()
 
-plt.savefig("{}_stats".format(re.search(r'checkpoint-\d*', DIR).group(0)))
+plt.savefig("./Images/{}__{}{}{}__{}_stats".format(model_name, today.day, today.month, today.year, re.search(r'checkpoint-\d*', DIR).group(0)))
 plt.show()
 
 # # Extracting data

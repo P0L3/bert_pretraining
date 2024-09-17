@@ -1,0 +1,27 @@
+Sentence: 
+Climate change refers to long-term shifts in temperatures and weather patterns. Such shifts can be natural, due to changes in the sun’s activity or large volcanic eruptions.
+------------------------------
+CliReBERT
+['[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]']
+
+CliReRoBERTa
+['Climate', 'Ġchange', 'Ġrefers', 'Ġto', 'Ġlong', '-', 'term', 'Ġshifts', 'Ġin', 'Ġtemperatures', 'Ġand', 'Ġweather', 'Ġpatterns', '.', 'ĠSuch', 'Ġshifts', 'Ġcan', 'Ġbe', 'Ġnatural', ',', 'Ġdue', 'Ġto', 'Ġchanges', 'Ġin', 'Ġthe', 'Ġsun', 'âĢĻ', 's', 'Ġactivity', 'Ġor', 'Ġlarge', 'Ġvolcanic', 'Ġeruptions', '.']
+
+CliSciBERT
+['climate', 'change', 'refers', 'to', 'long', '-', 'term', 'shifts', 'in', 'temperatures', 'and', 'weather', 'patterns', '.', 'such', 'shifts', 'can', 'be', 'natural', ',', 'due', 'to', 'changes', 'in', 'the', 'sun', '’', 's', 'activity', 'or', 'large', 'volcanic', 'erup', '##tions', '.']
+
+SciClimateBERT
+['Climate', 'Ġchange', 'Ġrefers', 'Ġto', 'Ġlong', '-', 'term', 'Ġshifts', 'Ġin', 'Ġ', 'temperatures', 'Ġand', 'Ġweather', 'Ġ', 'patterns', '.', 'ĠSuch', 'Ġshifts', 'Ġcan', 'Ġbe', 'Ġnatural', ',', 'Ġdue', 'Ġto', 'Ġchanges', 'Ġin', 'Ġthe', 'Ġsun', '’', 's', 'Ġactivity', 'Ġor', 'Ġlarge', 'Ġvolcanic', 'Ġeru', 'ptions', '.']
+
+CliReBERT_fixed
+['[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]']
+
+CliReBERT_fixed_1
+['climate', 'change', 'refers', 'to', 'long', '-', 'term', 'shifts', 'in', 'temperatures', 'and', 'weather', 'patterns', '.', 'such', 'shifts', 'can', 'be', 'natural', ',', 'due', 'to', 'changes', 'in', 'the', 'sun', '’', 's', 'activity', 'or', 'large', 'volcanic', 'eruptions', '.']
+
+CliReBERT_fixed_2
+['[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]', '[UNK]']
+
+CliReBERT_fixed_4real
+['climate', 'change', 'refers', 'to', 'long', '-', 'term', 'shifts', 'in', 'temperatures', 'and', 'weather', 'patterns', '.', 'such', 'shifts', 'can', 'be', 'natural', ',', 'due', 'to', 'changes', 'in', 'the', 'sun', '’', 's', 'activity', 'or', 'large', 'volcanic', 'eruptions', '.']
+

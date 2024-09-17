@@ -2,6 +2,7 @@ import torch
 from transformers import BertTokenizer, BertForMaskedLM, DataCollatorForLanguageModeling, TrainingArguments, Trainer, PreTrainedTokenizerFast, BertConfig
 from datasets import load_dataset
 from os import mkdir
+from functions import test_tokenizer
 
 MODEL = "p0l3/clirebert_clirevocab_uncased"
 model_name = MODEL.split("/")[-1]
@@ -39,9 +40,10 @@ print(test)
 
 # Modle and tokenizer load
 print(f"Loading tokenizer and model: {model_name}")
-tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/tokenizer.json")
+tokenizer = BertTokenizer(vocab_file="LOCAL_MODELS/CliReBERT/vocab.txt")
 config = BertConfig.from_json_file("LOCAL_MODELS/CliReBERT/config.json")
 model = BertForMaskedLM(config)
+test_tokenizer(tokenizer)
 
 print("Mask token:", tokenizer.mask_token)
 print("CLS token:", tokenizer.cls_token)

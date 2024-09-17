@@ -15,7 +15,7 @@
 
 from transformers import PreTrainedTokenizerFast
 
-DIR = "MODELS/p0l3__clirebert_clirevocab_uncased_ED4RE_MSL512_ASL50_S3592675_4/CliReBERT_142/"
+DIR = "./LOCAL_MODELS/CliReBERT/"
 
 # Specify the path to your tokenizer.json file
 tokenizer_path = DIR+"tokenizer.json"

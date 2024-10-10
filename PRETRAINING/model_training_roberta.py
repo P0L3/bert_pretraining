@@ -73,7 +73,7 @@ trainer = Trainer(
 )
 
 # train the model
-trainer.train()
+trainer.train(resume_from_checkpoint=True,)
 
 # Saving model
 try:

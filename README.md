@@ -1,5 +1,8 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining)
 
+# BERTmosphere 
+Check out the collection of models pretrained based on this code: https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347
+
 # Docker initialization
 1. Create Docker image from the folder containing [./Dockerfile](Dockerfile)
 ``` shell

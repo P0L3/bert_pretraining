@@ -1,3 +1,5 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining)
+
 # Docker initialization
 1. Create Docker image from the folder containing [./Dockerfile](Dockerfile)
 ``` shell

@@ -1,9 +1,11 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining)
+<!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining) -->
 [![DOI:10.21203/rs.3.rs-6644722/v1](http://img.shields.io/badge/DOI-10.21203/rs.3.rs-6644722/v1.svg)](https://dx.doi.org/10.21203/rs.3.rs-6644722/v1)
 [![Hugging Face - BERTmosphere](https://img.shields.io/badge/HuggingFace-BERTmosphere-blue?logo=huggingface)](https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347)
 
 # BERTmosphere 
-Check out the collection of models pretrained based on this code: https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347
+Check out the collection of models pretrained based on this code: [BERTmosphere](https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347). 
+
+Thank you [Nishan Chatterjee](https://github.com/nishan-chatterjee) for the creative collection name! 
 
 # Docker initialization
 1. Create Docker image from the folder containing [./Dockerfile](Dockerfile)

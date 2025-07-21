@@ -41,18 +41,28 @@ python3 sentence_tokenizer.py > process_log.txt
 # Model training info
 - [training_notes](./PRETRAINING/training_notes.md)
 
-# TODO
-- https://huggingface.co/docs/transformers/en/main_classes/data_collator#transformers.DataCollatorForPermutationLanguageModeling
+# LinkBERT
+1. [linkbert_prep](./PRETRAINING/linkbert_prep.ipynb) is used for initial stats on the data and fetching citations using Semantic Scholar/Crossref
+
+# Cite
+``` latex
+@article{poleksic_etal_2025,
+  title={Climate Research Domain BERTs: Pretraining, Adaptation, and Evaluation},
+  author={Poleksić, Andrija  and
+      Martinčić-Ipšić, Sanda},
+  journal={PREPRINT (Version 1)},
+  year={2025},
+  doi={https://doi.org/10.21203/rs.3.rs-6644722/v1}
+}
+```
 
 # Data collection
 - Used [PDF2TXT repo](https://github.com/P0L3/PDF2TXT)
 
-# Evaluation on Cli. TC tasks
-Evaluation on climate change related text classification tasks
-
 ## TODO 
 - [ ] - Add trainig script similar to [evidence_synthesis](https://github.com/dspoka/ccai-nlp-tutorial-2023/blob/main/1_evidence_synthesis.ipynb) from dspoka.
 - [ ] - Make a framework for training and evaluation of all available models: BERT, RoBERTa, DeBERTa, ...
+- [ ] - https://huggingface.co/docs/transformers/en/main_classes/data_collator#transformers.DataCollatorForPermutationLanguageModeling
 
 # Links
 - https://www.youtube.com/watch?v=IC9FaVPKlYc&t=85s
@@ -73,4 +83,3 @@ Evaluation on climate change related text classification tasks
 - https://keras.io/examples/nlp/pretraining_BERT/
 - https://medium.com/data-and-beyond/complete-guide-to-building-bert-model-from-sratch-3e6562228891
 - https://huggingface.co/learn/nlp-course/chapter7/6?fw=pt
-- 

@@ -5,3 +5,5 @@ PRETRAINING/LOCAL_MODELS/
 *.csv
 *.pickle
 *.graphml
+
+!PRETRAINING/ClimaBench/*.csv

@@ -1,5 +1,5 @@
 <!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining) -->
-[![DOI:10.21203/rs.3.rs-6644722/v1](http://img.shields.io/badge/DOI-10.21203/rs.3.rs-6644722/v1.svg)](https://dx.doi.org/10.21203/rs.3.rs-6644722/v1)
+[![DOI:10.1007/s42452-025-07740-5](http://img.shields.io/badge/DOI-10.21203/rs.3.rs-6644722/v1.svg)]([https://dx.doi.org/10.21203/rs.3.rs-6644722/v1](https://link.springer.com/article/10.1007/s42452-025-07740-5))
 [![Hugging Face - BERTmosphere](https://img.shields.io/badge/HuggingFace-BERTmosphere-blue?logo=huggingface)](https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347)
 
 # BERTmosphere 
@@ -46,14 +46,23 @@ python3 sentence_tokenizer.py > process_log.txt
 
 # Cite
 ``` latex
-@article{poleksic_etal_2025,
-  title={Climate Research Domain BERTs: Pretraining, Adaptation, and Evaluation},
-  author={Poleksić, Andrija  and
-      Martinčić-Ipšić, Sanda},
-  journal={PREPRINT (Version 1)},
-  year={2025},
-  doi={https://doi.org/10.21203/rs.3.rs-6644722/v1}
+﻿@Article{Poleksić2025,
+author={Poleksi{\'{c}}, Andrija
+and Martin{\v{c}}i{\'{c}}-Ip{\v{s}}i{\'{c}}, Sanda},
+title={Pretraining and evaluation of BERT models for climate research},
+journal={Discover Applied Sciences},
+year={2025},
+month={Oct},
+day={24},
+volume={7},
+number={11},
+pages={1278},
+issn={3004-9261},
+doi={10.1007/s42452-025-07740-5},
+url={https://doi.org/10.1007/s42452-025-07740-5}
 }
+
+
 ```
 
 # Data collection

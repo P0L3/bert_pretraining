@@ -1,5 +1,5 @@
 <!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/climate-research-domain-berts-pretraining/text-classification-on-climabench)](https://paperswithcode.com/sota/text-classification-on-climabench?p=climate-research-domain-berts-pretraining) -->
-[![DOI:10.1007/s42452-025-07740-5](http://img.shields.io/badge/DOI-10.21203/rs.3.rs-6644722/v1.svg)]([https://link.springer.com/article/10.1007/s42452-025-07740-5](https://link.springer.com/article/10.1007/s42452-025-07740-5))
+[![DOI:10.1007/s42452-025-07740-5](http://img.shields.io/badge/DOI-10.1007/s42452-025-07740-5.svg)]([https://link.springer.com/article/10.1007/s42452-025-07740-5](https://link.springer.com/article/10.1007/s42452-025-07740-5))
 [![Hugging Face - BERTmosphere](https://img.shields.io/badge/HuggingFace-BERTmosphere-blue?logo=huggingface)](https://huggingface.co/collections/P0L3/bertmosphere-681db99388ca86d430f14347)
 
 # BERTmosphere 

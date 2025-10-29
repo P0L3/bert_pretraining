@@ -8,7 +8,7 @@ from random import randint
 import re
 from datetime import date
 
-DIR = "./MODELS/climatebert__distilroberta-base-climate-f_ED4RE_MSL512_ASL50_S3592675_distilroberta-base-climate-f_24/checkpoint-41000/trainer_state.json" # Path to trainer state
+DIR = "./MODELS/climatebert__distilroberta-base-climate-f_ED4RE_MSL512_ASL50_S3592675_distilroberta_base_climate_f_24/checkpoint-114000/trainer_state.json" # Path to trainer state
 model_name = DIR.split("/MODELS/")[-1].split("/")[0].split("_ED4RE_")[0]
 today = date.today()
 

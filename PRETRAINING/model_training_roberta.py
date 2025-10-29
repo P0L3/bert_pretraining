@@ -5,7 +5,7 @@ from os import mkdir
 
 
 MODEL = "climatebert/distilroberta-base-climate-f" # Change dependaning opn the model you want to train
-model_name = MODEL.split("/")[-1]
+model_name = MODEL.split("/")[-1].replace("-", "_")
 
 DATA = f"ED4RE_MSL512_ASL50_S3592675_{model_name}"
 DIR_TRAIN = f"DATASET/BATCHED/{DATA}_train/*.arrow"

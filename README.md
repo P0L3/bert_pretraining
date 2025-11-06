@@ -9,6 +9,48 @@ Check out the collection of models pretrained based on this code: [BERTmosphere]
 
 Thank you [Nishan Chatterjee](https://github.com/nishan-chatterjee) for the creative collection name! 
 
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForMaskedLM, pipeline
+import torch
+
+# Load the pretrained model and tokenizer
+model_name = "P0L3/clirebert_clirevocab_uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForMaskedLM.from_pretrained(model_name)
+
+# Move model to GPU if available
+device = 0 if torch.cuda.is_available() else -1
+
+# Create a fill-mask pipeline
+fill_mask = pipeline("fill-mask", model=model, tokenizer=tokenizer, device=device)
+
+# Example input from scientific climate literature
+text = "The increase in greenhouse gas emissions has significantly affected the [MASK] balance of the Earth."
+
+# Run prediction
+predictions = fill_mask(text)
+
+# Show top predictions
+print(text)
+print(10*">")
+for p in predictions:
+    print(f"{p['sequence']} — {p['score']:.4f}")
+```
+Output:
+```python
+The increase in greenhouse gas emissions has significantly affected the [MASK] balance of the Earth.
+>>>>>>>>>>
+the increase in greenhouse gas ... affected the energy balance of the earth . — 0.6922
+the increase in greenhouse gas ... affected the mass balance of the earth . — 0.0631
+the increase in greenhouse gas ... affected the radiation balance of the earth . — 0.0606
+the increase in greenhouse gas ... affected the radiative balance of the earth . — 0.0517
+the increase in greenhouse gas ... affected the carbon balance of the earth . — 0.0365
+
+```
+
+
 # Docker initialization
 1. Create Docker image from the folder containing [./Dockerfile](Dockerfile)
 ``` shell
